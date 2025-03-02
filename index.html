@@ -6,25 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
 
   <style>
-    /* Font Styles */
-    .calc-regular {
-      font-family: "Exo", serif;
-      font-weight: 400;
-      font-style: normal;
+    /* General Page Styles */
+    #root {
+      font-family: 'Roboto', sans-serif;
     }
-    .calc-bold {
-      font-family: "Exo", serif;
-      font-weight: 700;
-      font-style: normal;
-    }
-    /* General Page Style */
     body {
+      font-family: 'Roboto', sans-serif;
       background-color: #333;
       color: #eee;
-      font-family: 'Exo';
       margin: 20px auto;
       width: 100%;
       max-width: 560px;
@@ -36,14 +29,23 @@
       margin-bottom: 6px;
       font-size: 1.75em;
       color: #ffa300;
+      font-weight: 600;
     }
+    .math {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    /* Stack Display Area */
     #stackDisplay {
       background-color: #000;
       border: 1px solid #666;
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 10px;
-      font-family: 'Exo', monospace;
+      font-family: monospace;
+      font-size: 1.25em;
       color: #ff2222;  /* vivid red */
     }
     .stack-row {
@@ -62,10 +64,12 @@
       padding-right: 10px;
       font-weight: 700;
     }
+    
     /* Dim the ENTRY label so it is less distracting */
     .entry-label {
       color: #660000;
     }
+    
     /* Container for the two-column button layout */
     #calcContainer {
       display: flex;
@@ -73,12 +77,14 @@
       justify-content: center;
       gap: 20px;
     }
+
     /* Left Column: Function Buttons arranged in a 6×3 grid */
     #functions {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 5px;
     }
+
     /* Right Column: Numeric Keypad arranged in rows */
     #numericButtons {
       display: grid;
@@ -97,19 +103,28 @@
       border-radius: 9px;
       width: 100%;
       height: 48px;
-      font-family: 'Exo';
-      font-weight: 600;
-      font-size: 1.25em;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 550;
+      font-size: 1.5em;
       cursor: pointer;
     }
     button:hover {
       background-color: #555;
     }
+
     /* Color-coded button categories */
-    .opBtn { color: #ff6666; }
-    .fnBtn { color: #66ff66; }
-    .memBtn { color: #66ccff; }
-    .otherBtn { color: #ffa300; }
+    .opBtn {
+      color: #ff6666;
+    }
+    .fnBtn {
+      color: #66ff66;
+    }
+    .memBtn {
+      color: #66ccff;
+    }
+    .otherBtn {
+      color: #ffa300;
+    }
 
     /* Responsive Design */
     @media (min-width: 600px) {
@@ -188,14 +203,14 @@
         <button data-action="7">7</button>
         <button data-action="8">8</button>
         <button data-action="9">9</button>
-        <button class="opBtn" data-action="/">/</button>
+        <button class="opBtn" data-action="/">÷</button>
       </div>
       <!-- Row 2: 4, 5, 6, * -->
       <div class="button-row">
         <button data-action="4">4</button>
         <button data-action="5">5</button>
         <button data-action="6">6</button>
-        <button class="opBtn" data-action="*">x</button>
+        <button class="opBtn" data-action="*">⨉</button>
       </div>
       <!-- Row 3: 1, 2, 3, - -->
       <div class="button-row">
@@ -208,12 +223,12 @@
       <div class="button-row">
         <button data-action="0">0</button>
         <button data-action=".">.</button>
-        <button class="opBtn" data-action="y^x">y^x</button>
+        <button class="opBtn math" data-action="y^x">y^x</button>
         <button class="opBtn" data-action="+">+</button>
       </div>
       <!-- Row 5: ENTER, CLR, DEL -->
       <div class="button-row">
-        <button class="otherBtn" style="width:120px" data-action="ENTER">ENTER</button>
+        <button class="otherBtn" style="width:120px" data-action="ENTER">ENTER↑</button>
         <button class="otherBtn" data-action="CLR">CLR</button>
         <button class="otherBtn" data-action="DEL">DEL</button>
       </div>
