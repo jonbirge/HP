@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,0..100&display=swap" rel="stylesheet">
 
   <style>
     /* General Page Styles */
@@ -39,13 +39,14 @@
 
     /* Stack Display Area */
     #stackDisplay {
+      font-family: 'Doto', monospace;
+      font-weight: 800;
+      font-size: 1.0em;
       background-color: #000;
       border: 1px solid #666;
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 10px;
-      font-family: monospace;
-      font-size: 1.25em;
       color: #ff2222;  /* vivid red */
     }
     .stack-row {
@@ -189,12 +190,12 @@
       <button class="fnBtn" data-action="atan">atan</button>
       <!-- Row 5: Logs & Exponents (Part 1) -->
       <button class="fnBtn" data-action="ln">ln</button>
-      <button class="fnBtn" data-action="exp">e^x</button>
+      <button class="fnBtn math" data-action="exp">e^x</button>
       <button class="fnBtn" data-action="log10">log10</button>
       <!-- Row 6: Logs & Exponents (Part 2) -->
       <button class="fnBtn" data-action="sqrt">√</button>
-      <button class="fnBtn" data-action="x^2">x²</button>
-      <button class="fnBtn" data-action="inv">1/x</button>
+      <button class="fnBtn math" data-action="x^2">x²</button>
+      <button class="fnBtn math" data-action="inv">1/x</button>
     </div>
     <!-- Right Column: Numeric Keypad -->
     <div id="numericButtons">
@@ -210,14 +211,14 @@
         <button data-action="4">4</button>
         <button data-action="5">5</button>
         <button data-action="6">6</button>
-        <button class="opBtn" data-action="*">⨉</button>
+        <button class="opBtn" data-action="*">×</button>
       </div>
       <!-- Row 3: 1, 2, 3, - -->
       <div class="button-row">
         <button data-action="1">1</button>
         <button data-action="2">2</button>
         <button data-action="3">3</button>
-        <button class="opBtn" data-action="-">-</button>
+        <button class="opBtn" data-action="-">−</button>
       </div>
       <!-- Row 4: 0, ., y^x, + -->
       <div class="button-row">
@@ -228,7 +229,7 @@
       </div>
       <!-- Row 5: ENTER, CLR, DEL -->
       <div class="button-row">
-        <button class="otherBtn" style="width:120px" data-action="ENTER">ENTER↑</button>
+        <button class="otherBtn" style="width:120px" data-action="ENTER">ENTER🡅</button>
         <button class="otherBtn" data-action="CLR">CLR</button>
         <button class="otherBtn" data-action="DEL">DEL</button>
       </div>
