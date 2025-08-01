@@ -1,0 +1,12 @@
+{
+    "name": "HP RPN Calculator",
+    "image": "mcr.microsoft.com/devcontainers/php:0-8.2",
+    "forwardPorts": [3000],
+    "postCreateCommand": "php -S 0.0.0.0:3000 -t . > /tmp/php-server.log 2>&1 &",
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": []
+        }
+    }
+}

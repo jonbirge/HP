@@ -128,8 +128,13 @@ function handleFunction(fn) {
         case 'asin': result = Math.asin(x); break;
         case 'acos': result = Math.acos(x); break;
         case 'atan': result = Math.atan(x); break;
+        case 'sinh': result = Math.sinh ? Math.sinh(x) : (Math.exp(x) - Math.exp(-x)) / 2; break;
+        case 'cosh': result = Math.cosh ? Math.cosh(x) : (Math.exp(x) + Math.exp(-x)) / 2; break;
+        case 'tanh': result = Math.tanh ? Math.tanh(x) : (Math.exp(x) - Math.exp(-x)) / (Math.exp(x) + Math.exp(-x)); break;
         case 'ln': result = Math.log(x); break;
         case 'exp': result = Math.exp(x); break;
+        case 'log2': result = Math.log2 ? Math.log2(x) : (Math.log(x) / Math.log(2)); break;
+        case 'tenx': result = Math.pow(10, x); break;
         case 'log10': result = Math.log10 ? Math.log10(x) : (Math.log(x) / Math.log(10)); break;
         case 'sqrt':
             if (x < 0) {
@@ -148,6 +153,18 @@ function handleFunction(fn) {
             }
             result = 1 / x;
             break;
+        case 'fact':
+            if (x < 0 || !Number.isInteger(x)) {
+                alert('Factorial is only defined for non-negative integers');
+                updateDisplay();
+                return;
+            }
+            result = 1;
+            for (let i = 2; i <= x; i++) result *= i;
+            break;
+        case 'abs': result = Math.abs(x); break;
+        case 'floor': result = Math.floor(x); break;
+        case 'ceil': result = Math.ceil(x); break;
         default: break;
     }
     stack[0] = result;
@@ -180,7 +197,7 @@ function handleAction(action) {
     if (action === 'DUP') { handleDup(); return; }
     if (action === 'STO' || action === 'RCL') { handleMemoryOp(action); return; }
     if (['+', '-', '*', '/', 'y^x'].includes(action)) { handleArithmetic(action); return; }
-    if (['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'ln', 'exp', 'log10', 'sqrt', 'x^2', 'inv'].includes(action)) { handleFunction(action); return; }
+    if (['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'ln', 'exp', 'log2', 'tenx', 'log10', 'sqrt', 'x^2', 'inv', 'fact', 'abs', 'floor', 'ceil'].includes(action)) { handleFunction(action); return; }
     alert('Unknown action: ' + action);
 }
 
