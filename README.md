@@ -55,15 +55,6 @@ To calculate 5 + 3:
 4. Press `+`
 5. Result: `8`
 
-### Chain Calculation Example
-To calculate (5 + 3) × 2:
-1. Enter `5`
-2. Press `ENTER`
-3. Enter `3`
-4. Press `+` (result: 8 in X register)
-5. Enter `2`
-6. Press `×` (result: 16)
-
 ### Using the Stack
 The RPN stack allows you to work with multiple values efficiently:
 - **X register**: Current/display value
@@ -76,23 +67,11 @@ The RPN stack allows you to work with multiple values efficiently:
 - Pure HTML5, CSS3, and vanilla JavaScript
 - No external dependencies or frameworks
 - Responsive design works on desktop and mobile
-- Vintage-styled orange LED display with authentic HP calculator aesthetics
-- Color-coded button groups for easy function identification
 
 ## Running the Calculator
 
-Simply open `index.html` in any modern web browser. For local development with proper font loading:
-
-```bash
-# Using Python
-python3 -m http.server 8000
-
-# Using Node.js
-npx http-server
-
-# Then open http://localhost:8000
-```
+Simply open `index.html` in any modern web browser.
 
 ## License
 
-Open source - feel free to use and modify!
+Unrestricted public domain - feel free to use and modify!
