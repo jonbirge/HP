@@ -14,94 +14,125 @@
 </head>
 
 <body>
-  <!-- Stack Display Area -->
-  <div id="stackDisplay">
-    <div class="stack-row">
-      <div class="stack-label">T:</div>
-      <div class="stack-value" id="stack-t">0</div>
+  <!-- HP-67 Calculator Body -->
+  <div id="calculator-body">
+    <!-- Stack Display Area -->
+    <div id="stackDisplay">
+      <div class="stack-row">
+        <div class="stack-label">T:</div>
+        <div class="stack-value" id="stack-t">0</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">Z:</div>
+        <div class="stack-value" id="stack-z">0</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">Y:</div>
+        <div class="stack-value" id="stack-y">0</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">X:</div>
+        <div class="stack-value" id="stack-x">0</div>
+      </div>
+      <!-- Permanent ENTRY row with a dim label -->
+      <div class="stack-row" id="entry-row">
+        <div class="stack-label entry-label">ENTRY:</div>
+        <div class="stack-value" id="stack-entry"></div>
+      </div>
     </div>
-    <div class="stack-row">
-      <div class="stack-label">Z:</div>
-      <div class="stack-value" id="stack-z">0</div>
-    </div>
-    <div class="stack-row">
-      <div class="stack-label">Y:</div>
-      <div class="stack-value" id="stack-y">0</div>
-    </div>
-    <div class="stack-row">
-      <div class="stack-label">X:</div>
-      <div class="stack-value" id="stack-x">0</div>
-    </div>
-    <!-- Permanent ENTRY row with a dim label -->
-    <div class="stack-row" id="entry-row">
-      <div class="stack-label entry-label">ENTRY:</div>
-      <div class="stack-value" id="stack-entry"></div>
-    </div>
-  </div>
 
-  <!-- Single-Column Calculator Layout (HP-15C Style) -->
-  <div id="calcContainer">
-    <!-- Row 1: Top function keys -->
-    <div class="button-row">
-      <button class="fnBtn" data-action="sqrt">√x</button>
-      <button class="fnBtn math" data-action="exp">e<sup>x</sup></button>
-      <button class="fnBtn" data-action="log10">LOG</button>
-      <button class="fnBtn" data-action="ln">LN</button>
-      <button class="opBtn math" data-action="y^x">y<sup>x</sup></button>
-    </div>
-    
-    <!-- Row 2: Memory and stack operations -->
-    <div class="button-row">
-      <button class="memBtn" data-action="STO">STO</button>
-      <button class="memBtn" data-action="RCL">RCL</button>
-      <button class="otherBtn" data-action="ROLL">R↓</button>
-      <button class="fnBtn" data-action="sin">SIN</button>
-      <button class="fnBtn" data-action="cos">COS</button>
-    </div>
-    
-    <!-- Row 3: More functions -->
-    <div class="button-row">
-      <button class="otherBtn" data-action="SWAP">x⇄y</button>
-      <button class="otherBtn" data-action="CLR">CLx</button>
-      <button class="otherBtn" data-action="ENTER">ENTER ↑</button>
-      <button class="fnBtn" data-action="tan">TAN</button>
-      <button class="fnBtn math" data-action="inv"><sup>1</sup>/<sub>x</sub></button>
-    </div>
-    
-    <!-- Row 4: 7, 8, 9, / -->
-    <div class="button-row">
-      <button class="otherBtn" data-action="DROP">DROP</button>
-      <button data-action="7">7</button>
-      <button data-action="8">8</button>
-      <button data-action="9">9</button>
-      <button class="opBtn" data-action="/">÷</button>
-    </div>
-    
-    <!-- Row 5: 4, 5, 6, * -->
-    <div class="button-row">
-      <button class="otherBtn" data-action="DUP">DUP</button>
-      <button data-action="4">4</button>
-      <button data-action="5">5</button>
-      <button data-action="6">6</button>
-      <button class="opBtn" data-action="*">×</button>
-    </div>
-    
-    <!-- Row 6: 1, 2, 3, - -->
-    <div class="button-row">
-      <button class="fnBtn math" data-action="x^2">x<sup>2</sup></button>
-      <button data-action="1">1</button>
-      <button data-action="2">2</button>
-      <button data-action="3">3</button>
-      <button class="opBtn" data-action="-">−</button>
-    </div>
-    
-    <!-- Row 7: 0, ., DEL, + -->
-    <div class="button-row">
-      <button class="otherBtn" data-action="DEL">DEL</button>
-      <button data-action="0">0</button>
-      <button data-action=".">.</button>
-      <button class="fnBtn" data-action="asin">ASIN</button>
-      <button class="opBtn" data-action="+">+</button>
+    <!-- HP-67 Calculator Keyboard -->
+    <div id="calcContainer">
+    <!-- HP-67 Calculator Keyboard -->
+    <div id="calcContainer">
+      <!-- Row 1: Top function row -->
+      <div class="button-row">
+        <button class="fnBtn" data-action="asin">ASIN</button>
+        <button class="fnBtn" data-action="acos">ACOS</button>
+        <button class="fnBtn" data-action="atan">ATAN</button>
+        <button class="fnBtn" data-action="sin">SIN</button>
+        <button class="fnBtn" data-action="cos">COS</button>
+        <button class="fnBtn" data-action="tan">TAN</button>
+      </div>
+      
+      <!-- Row 2: Scientific functions -->
+      <div class="button-row">
+        <button class="fnBtn math" data-action="x^2">x<sup>2</sup></button>
+        <button class="fnBtn" data-action="sqrt">√x</button>
+        <button class="fnBtn math" data-action="inv"><sup>1</sup>/<sub>x</sub></button>
+        <button class="fnBtn" data-action="ln">LN</button>
+        <button class="fnBtn math" data-action="exp">e<sup>x</sup></button>
+        <button class="fnBtn" data-action="log10">LOG</button>
+      </div>
+      
+      <!-- Row 3: Power and conversion functions -->
+      <div class="button-row">
+        <button class="fnBtn math" data-action="y^x">y<sup>x</sup></button>
+        <button class="fnBtn" data-action="abs">|x|</button>
+        <button class="fnBtn" data-action="int">INT</button>
+        <button class="fnBtn" data-action="frac">FRAC</button>
+        <button class="fnBtn" data-action="pi">π</button>
+        <button class="fnBtn" data-action="percent">%</button>
+      </div>
+      
+      <!-- Row 4: Memory and statistics -->
+      <div class="button-row">
+        <button class="memBtn" data-action="STO">STO</button>
+        <button class="memBtn" data-action="RCL">RCL</button>
+        <button class="memBtn" data-action="SUM">Σ+</button>
+        <button class="memBtn" data-action="MEAN">x̄</button>
+        <button class="memBtn" data-action="STDEV">s</button>
+        <button class="memBtn" data-action="LR">L.R.</button>
+      </div>
+      
+      <!-- Row 5: Stack operations and ENTER -->
+      <div class="button-row">
+        <button class="otherBtn" data-action="SWAP">x⇄y</button>
+        <button class="otherBtn" data-action="ROLL">R↓</button>
+        <button class="otherBtn" data-action="LASTX">LAST x</button>
+        <button class="otherBtn" data-action="CHS">CHS</button>
+        <button class="otherBtn" data-action="EEX">EEX</button>
+        <button class="otherBtn enter-btn" data-action="ENTER">ENTER ↑</button>
+      </div>
+      
+      <!-- Row 6: 7, 8, 9, operations -->
+      <div class="button-row">
+        <button class="otherBtn" data-action="CLR">CLR</button>
+        <button data-action="7">7</button>
+        <button data-action="8">8</button>
+        <button data-action="9">9</button>
+        <button class="opBtn" data-action="/">÷</button>
+        <button class="fnBtn" data-action="factorial">x!</button>
+      </div>
+      
+      <!-- Row 7: 4, 5, 6, operations -->
+      <div class="button-row">
+        <button class="otherBtn" data-action="DUP">DUP</button>
+        <button data-action="4">4</button>
+        <button data-action="5">5</button>
+        <button data-action="6">6</button>
+        <button class="opBtn" data-action="*">×</button>
+        <button class="fnBtn" data-action="polar">→P</button>
+      </div>
+      
+      <!-- Row 8: 1, 2, 3, operations -->
+      <div class="button-row">
+        <button class="otherBtn" data-action="DROP">DROP</button>
+        <button data-action="1">1</button>
+        <button data-action="2">2</button>
+        <button data-action="3">3</button>
+        <button class="opBtn" data-action="-">−</button>
+        <button class="fnBtn" data-action="rect">→R</button>
+      </div>
+      
+      <!-- Row 9: 0, decimal, operations -->
+      <div class="button-row">
+        <button class="otherBtn" data-action="DEL">DEL</button>
+        <button data-action="0" class="wide-btn">0</button>
+        <button data-action=".">.</button>
+        <button class="opBtn" data-action="+">+</button>
+        <button class="fnBtn" data-action="HMS">→H.MS</button>
+      </div>
     </div>
   </div>
 
