@@ -39,72 +39,69 @@
     </div>
   </div>
 
-  <!-- Two-Column Calculator Layout -->
+  <!-- Single-Column Calculator Layout (HP-15C Style) -->
   <div id="calcContainer">
-    <!-- Left Column: Function Buttons (6×3 grid) -->
-    <div id="functions">
-      <!-- Buttons will fill in reading order (row-major): -->
-      <!-- Row 1: Memory & Stack Operations -->
+    <!-- Row 1: Top function keys -->
+    <div class="button-row">
+      <button class="fnBtn" data-action="sqrt">√x</button>
+      <button class="fnBtn math" data-action="exp">e<sup>x</sup></button>
+      <button class="fnBtn" data-action="log10">LOG</button>
+      <button class="fnBtn" data-action="ln">LN</button>
+      <button class="opBtn math" data-action="y^x">y<sup>x</sup></button>
+    </div>
+    
+    <!-- Row 2: Memory and stack operations -->
+    <div class="button-row">
       <button class="memBtn" data-action="STO">STO</button>
       <button class="memBtn" data-action="RCL">RCL</button>
-      <button class="otherBtn" data-action="DROP">DROP</button>
-      <!-- Row 2: More Stack Ops -->
-      <button class="otherBtn" data-action="SWAP">SWAP</button>
-      <button class="otherBtn" data-action="ROLL">ROLL</button>
-      <button class="otherBtn" data-action="DUP">DUP</button>
-      <!-- Row 3: Trigonometry (Part 1) -->
-      <button class="fnBtn" data-action="sin">sin</button>
-      <button class="fnBtn" data-action="cos">cos</button>
-      <button class="fnBtn" data-action="tan">tan</button>
-      <!-- Row 4: Trigonometry (Part 2) -->
-      <button class="fnBtn" data-action="asin">asin</button>
-      <button class="fnBtn" data-action="acos">acos</button>
-      <button class="fnBtn" data-action="atan">atan</button>
-      <!-- Row 5: Logs & Exponents (Part 1) -->
-      <button class="fnBtn" data-action="ln">ln</button>
-      <button class="fnBtn math" data-action="exp">e<sup> x</sup></button>
-      <button class="fnBtn" data-action="log10">log<sub>10</sub></button>
-      <!-- Row 6: Logs & Exponents (Part 2) -->
-      <button class="fnBtn" data-action="sqrt">√</button>
-      <button class="fnBtn math" data-action="x^2">x<sup> 2</sup></button>
+      <button class="otherBtn" data-action="ROLL">R↓</button>
+      <button class="fnBtn" data-action="sin">SIN</button>
+      <button class="fnBtn" data-action="cos">COS</button>
+    </div>
+    
+    <!-- Row 3: More functions -->
+    <div class="button-row">
+      <button class="otherBtn" data-action="SWAP">x⇄y</button>
+      <button class="otherBtn" data-action="CLR">CLx</button>
+      <button class="otherBtn" data-action="ENTER">ENTER ↑</button>
+      <button class="fnBtn" data-action="tan">TAN</button>
       <button class="fnBtn math" data-action="inv"><sup>1</sup>/<sub>x</sub></button>
     </div>
-    <!-- Right Column: Numeric Keypad -->
-    <div id="numericButtons">
-      <!-- Row 1: 7, 8, 9, / -->
-      <div class="button-row">
-        <button data-action="7">7</button>
-        <button data-action="8">8</button>
-        <button data-action="9">9</button>
-        <button class="opBtn" data-action="/">÷</button>
-      </div>
-      <!-- Row 2: 4, 5, 6, * -->
-      <div class="button-row">
-        <button data-action="4">4</button>
-        <button data-action="5">5</button>
-        <button data-action="6">6</button>
-        <button class="opBtn" data-action="*">×</button>
-      </div>
-      <!-- Row 3: 1, 2, 3, - -->
-      <div class="button-row">
-        <button data-action="1">1</button>
-        <button data-action="2">2</button>
-        <button data-action="3">3</button>
-        <button class="opBtn" data-action="-">−</button>
-      </div>
-      <!-- Row 4: 0, ., y^x, + -->
-      <div class="button-row">
-        <button data-action="0">0</button>
-        <button data-action=".">.</button>
-        <button class="opBtn math" data-action="y^x">y<sup> x</sup></button>
-        <button class="opBtn" data-action="+">+</button>
-      </div>
-      <!-- Row 5: ENTER, CLR, DEL -->
-      <div class="button-row">
-        <button class="otherBtn" data-action="ENTER">ENTER</button>
-        <button class="otherBtn" data-action="CLR">CLR</button>
-        <button class="otherBtn" data-action="DEL">DEL</button>
-      </div>
+    
+    <!-- Row 4: 7, 8, 9, / -->
+    <div class="button-row">
+      <button class="otherBtn" data-action="DROP">DROP</button>
+      <button data-action="7">7</button>
+      <button data-action="8">8</button>
+      <button data-action="9">9</button>
+      <button class="opBtn" data-action="/">÷</button>
+    </div>
+    
+    <!-- Row 5: 4, 5, 6, * -->
+    <div class="button-row">
+      <button class="otherBtn" data-action="DUP">DUP</button>
+      <button data-action="4">4</button>
+      <button data-action="5">5</button>
+      <button data-action="6">6</button>
+      <button class="opBtn" data-action="*">×</button>
+    </div>
+    
+    <!-- Row 6: 1, 2, 3, - -->
+    <div class="button-row">
+      <button class="fnBtn math" data-action="x^2">x<sup>2</sup></button>
+      <button data-action="1">1</button>
+      <button data-action="2">2</button>
+      <button data-action="3">3</button>
+      <button class="opBtn" data-action="-">−</button>
+    </div>
+    
+    <!-- Row 7: 0, ., DEL, + -->
+    <div class="button-row">
+      <button class="otherBtn" data-action="DEL">DEL</button>
+      <button data-action="0">0</button>
+      <button data-action=".">.</button>
+      <button class="fnBtn" data-action="asin">ASIN</button>
+      <button class="opBtn" data-action="+">+</button>
     </div>
   </div>
 
