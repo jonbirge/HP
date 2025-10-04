@@ -1,6 +1,6 @@
 # Vintage RPN Calculator
 
-A web-based Reverse Polish Notation (RPN) calculator inspired by the legendary HP-67 calculator. This application brings the classic scientific calculator experience to your browser with authentic vintage styling and powerful computational features.
+A web-based Reverse Polish Notation (RPN) calculator inspired by the legendary HP-67 calculator.
 
 ![Calculator Screenshot](https://github.com/user-attachments/assets/f82ac9a9-c8de-4505-9ff2-57240979aa3c)
 
