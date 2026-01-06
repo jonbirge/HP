@@ -1,81 +1,241 @@
+/* Vintage HP Calculator Styles */
+
+/* Import classic fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
 /* General Page Styles */
 body {
-    background-color: #1a1a1a;
-    margin: 20px auto;
-    max-width: 550px;
-    padding: 20px;
+    background: linear-gradient(180deg, #1a1612 0%, #0d0a08 100%);
+    margin: 0;
+    padding: 30px 20px;
+    min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-/* HP-67 Calculator Body - encompasses both display and keys */
+/* HP-67 Calculator Body - Classic wedge design */
 #calculator-body {
-    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.8),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 2px solid #0a0a0a;
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(175deg,
+        #3d3832 0%,
+        #2a2520 15%,
+        #1f1b18 50%,
+        #1a1714 100%);
+    border-radius: 16px 16px 20px 20px;
+    padding: 0;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid #0a0908;
+    position: relative;
+    overflow: hidden;
 }
 
-.math {
-    font-family: 'Fraunces', monospace;
-    font-weight: 500;
-    font-style: italic;
+/* Subtle texture overlay */
+#calculator-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+        );
+    pointer-events: none;
+    border-radius: inherit;
 }
 
-/* Stack Display Area - HP Calculator Style */
-#stackDisplay {
-    font-family: 'Doto', monospace;
+/* HP Logo Header Area */
+#hp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px 14px 24px;
+    background: linear-gradient(180deg,
+        rgba(60, 55, 48, 0.6) 0%,
+        rgba(40, 36, 32, 0.4) 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.hp-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hp-letters {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #b8a080;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    background: linear-gradient(180deg, #d4c4a8 0%, #a08860 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.model-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.model-name {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #c4a060;
+    letter-spacing: 1px;
+}
+
+.model-type {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
-    background-color: #0d0800;
-    border: 3px solid #0a0a0a;
+    font-size: 9px;
+    color: #8a7a60;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+}
+
+/* Display Bezel - Metallic frame around display */
+#display-bezel {
+    margin: 16px 18px;
+    padding: 4px;
+    background: linear-gradient(180deg,
+        #5a5048 0%,
+        #3a3430 20%,
+        #2a2420 80%,
+        #4a4238 100%);
     border-radius: 6px;
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    color: #ff9900;
-    box-shadow: 
-        inset 0 3px 10px rgba(0, 0, 0, 0.9),
-        inset 0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.4),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Stack Display Area - Vintage LED style */
+#stackDisplay {
+    font-family: 'Orbitron', 'Doto', monospace;
+    font-weight: 500;
+    background: linear-gradient(180deg, #0a0600 0%, #0d0800 50%, #080400 100%);
+    border: 2px solid #0a0a08;
+    border-radius: 4px;
+    padding: 14px 16px 10px 16px;
+    color: #ff6600;
+    box-shadow:
+        inset 0 4px 15px rgba(0, 0, 0, 0.9),
+        inset 0 0 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 3px rgba(255, 102, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* LED Scanline effect */
+#stackDisplay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.15) 2px,
+        rgba(0, 0, 0, 0.15) 4px
+    );
+    pointer-events: none;
+}
+
+/* LED glow effect */
+#stackDisplay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 80, 0, 0.03) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
 }
 
 .stack-row {
     display: flex;
     justify-content: space-between;
-    font-size: 14pt;
-    /* margin: 3px 0; */
+    align-items: center;
+    font-size: 15px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
 }
 
 .stack-label {
-    min-width: 40px;
+    min-width: 50px;
     text-align: left;
+    color: #cc5500;
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0.8;
 }
 
 .stack-value {
-    width: 280px;
+    flex: 1;
     text-align: right;
-    padding-right: 10px;
-    font-weight: 800;
+    padding-right: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ff7722;
+    text-shadow:
+        0 0 8px rgba(255, 102, 0, 0.6),
+        0 0 15px rgba(255, 60, 0, 0.3);
+    letter-spacing: 1px;
+    line-height: 22px;
+    min-height: 22px;
 }
 
-/* Dim the ENTRY label so it is less distracting */
+/* Entry row - slightly dimmer */
 .entry-label {
-    font-weight: 300;
-    color: #996600;
+    font-weight: 400;
+    color: #884400;
+    opacity: 0.7;
+}
+
+#entry-row .stack-value {
+    color: #ff8844;
+}
+
+/* Keyboard Section */
+#keyboard-section {
+    padding: 0 18px 20px 18px;
 }
 
 /* HP-67 calculator keyboard layout */
 #calcContainer {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     margin: 0;
     padding: 0;
-}
-
-/* Remove old two-column styles */
-#functions, #numericButtons {
-    display: contents;
 }
 
 .button-row {
@@ -85,101 +245,371 @@ body {
     margin: 0;
 }
 
+/* Add visual separator before number pad */
+.button-row:nth-child(6) {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(80, 70, 55, 0.4);
+}
+
+/* Base button styles - Classic HP flat-top beveled keys */
 button {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Condensed', 'Helvetica Neue', sans-serif;
     font-weight: 600;
-    font-size: 0.75em;
-    background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 100%);
-    color: #fff;
-    border: 1px solid #0a0a0a;
-    border-radius: 4px;
+    font-size: 12px;
+    background: #383330;
+    color: #e8e0d0;
+    border: none;
+    border-radius: 3px;
     width: 100%;
-    min-width: 45px;
-    height: 38px;
+    height: 42px;
     cursor: pointer;
     margin: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-    transition: all 0.1s;
-    padding: 2px 4px;
+    box-shadow:
+        /* 3D depth - bottom edge */
+        0 4px 0 #1a1815,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        /* Top chamfer highlight */
+        inset 0 2px 0 rgba(255, 255, 255, 0.12),
+        /* Left chamfer highlight */
+        inset 2px 0 0 rgba(255, 255, 255, 0.06),
+        /* Right chamfer shadow */
+        inset -2px 0 0 rgba(0, 0, 0, 0.15),
+        /* Bottom chamfer shadow */
+        inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    transition: all 0.08s ease-out;
+    padding: 0 3px;
+    letter-spacing: 0.5px;
+    position: relative;
 }
 
 button:hover {
-    background: linear-gradient(180deg, #5a5a5a 0%, #3a3a3a 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    background: #454038;
+    box-shadow:
+        0 4px 0 #1a1815,
+        0 6px 5px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15),
+        inset 2px 0 0 rgba(255, 255, 255, 0.08),
+        inset -2px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.25);
 }
 
 button:active {
-    transform: translateY(1px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(3px);
+    background: #2a2520;
+    box-shadow:
+        0 1px 0 #1a1815,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 2px 0 0 rgba(0, 0, 0, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Special button styles */
-.enter-btn {
-    grid-column: span 1;
+/* Math notation styling */
+.math {
+    font-family: 'Times New Roman', 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+button sup, button sub {
+    font-size: 0.7em;
+}
+
+/* Number keys - White/cream colored like vintage HP */
+button[data-action="0"],
+button[data-action="1"],
+button[data-action="2"],
+button[data-action="3"],
+button[data-action="4"],
+button[data-action="5"],
+button[data-action="6"],
+button[data-action="7"],
+button[data-action="8"],
+button[data-action="9"],
+button[data-action="."] {
+    background: #484440;
+    color: #ffffff;
     font-weight: 700;
+    font-size: 16px;
+    box-shadow:
+        0 4px 0 #1a1815,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15),
+        inset 2px 0 0 rgba(255, 255, 255, 0.08),
+        inset -2px 0 0 rgba(0, 0, 0, 0.12),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
 }
 
+button[data-action="0"]:hover,
+button[data-action="1"]:hover,
+button[data-action="2"]:hover,
+button[data-action="3"]:hover,
+button[data-action="4"]:hover,
+button[data-action="5"]:hover,
+button[data-action="6"]:hover,
+button[data-action="7"]:hover,
+button[data-action="8"]:hover,
+button[data-action="9"]:hover,
+button[data-action="."]:hover {
+    background: #555048;
+}
+
+/* Operation buttons - Gold/Brown HP style */
+.opBtn {
+    background: #5a4820;
+    color: #fff8e0;
+    font-weight: 700;
+    font-size: 18px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 4px 0 #3a3018,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 230, 180, 0.2),
+        inset 2px 0 0 rgba(255, 230, 180, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.2),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.opBtn:hover {
+    background: #6a5830;
+}
+
+.opBtn:active {
+    background: #4a3818;
+    box-shadow:
+        0 1px 0 #3a3018,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 2px 0 0 rgba(0, 0, 0, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(255, 230, 180, 0.05);
+}
+
+/* Function buttons - Olive/Khaki HP style */
+.fnBtn {
+    background: #4a4220;
+    color: #e8e080;
+    font-weight: 600;
+    font-size: 12px;
+    box-shadow:
+        0 4px 0 #282418,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(220, 220, 140, 0.15),
+        inset 2px 0 0 rgba(220, 220, 140, 0.08),
+        inset -2px 0 0 rgba(0, 0, 0, 0.18),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.28);
+}
+
+.fnBtn:hover {
+    background: #5a5230;
+}
+
+.fnBtn:active {
+    background: #3a3418;
+    box-shadow:
+        0 1px 0 #282418,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 2px 0 0 rgba(0, 0, 0, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(220, 220, 140, 0.05);
+}
+
+/* Memory buttons - Blue HP style */
+.memBtn {
+    background: #283850;
+    color: #90d0ff;
+    font-weight: 600;
+    font-size: 12px;
+    box-shadow:
+        0 4px 0 #152030,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(140, 190, 255, 0.15),
+        inset 2px 0 0 rgba(140, 190, 255, 0.08),
+        inset -2px 0 0 rgba(0, 0, 0, 0.2),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.memBtn:hover {
+    background: #384860;
+}
+
+.memBtn:active {
+    background: #1a2840;
+    box-shadow:
+        0 1px 0 #152030,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 2px 0 0 rgba(0, 0, 0, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(140, 190, 255, 0.05);
+}
+
+/* Other/Stack operation buttons - Tan/Brown */
+.otherBtn {
+    background: #443020;
+    color: #ffcc88;
+    font-weight: 600;
+    font-size: 11px;
+    box-shadow:
+        0 4px 0 #201810,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 200, 150, 0.15),
+        inset 2px 0 0 rgba(255, 200, 150, 0.08),
+        inset -2px 0 0 rgba(0, 0, 0, 0.18),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.28);
+}
+
+.otherBtn:hover {
+    background: #544030;
+}
+
+.otherBtn:active {
+    background: #342418;
+    box-shadow:
+        0 1px 0 #201810,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 2px 0 0 rgba(0, 0, 0, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(255, 200, 150, 0.05);
+}
+
+/* ENTER button - Special gold highlight, double-width */
+.enter-btn {
+    grid-column: span 2;
+    background: #5a4820;
+    color: #ffe8a0;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    box-shadow:
+        0 4px 0 #3a3018,
+        0 5px 3px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 220, 160, 0.2),
+        inset 2px 0 0 rgba(255, 220, 160, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.2),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.enter-btn:hover {
+    background: #6a5830;
+}
+
+.enter-btn:active {
+    background: #4a3818;
+    box-shadow:
+        0 1px 0 #3a3018,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 2px 0 0 rgba(0, 0, 0, 0.1),
+        inset -2px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(255, 220, 160, 0.05);
+}
+
+/* Wide button styling */
 .wide-btn {
     grid-column: span 1;
 }
 
-/* HP-67 color-coded button categories */
-.opBtn {
-    background: linear-gradient(180deg, #6a5a3a 0%, #4a3a1a 100%);
-    color: #ffd700;
-    font-weight: 700;
-}
-
-.opBtn:hover {
-    background: linear-gradient(180deg, #7a6a4a 0%, #5a4a2a 100%);
-}
-
-.fnBtn {
-    background: linear-gradient(180deg, #5a5a2a 0%, #3a3a1a 100%);
-    color: #ffdd00;
-    font-weight: 600;
-}
-
-.fnBtn:hover {
-    background: linear-gradient(180deg, #6a6a3a 0%, #4a4a2a 100%);
-}
-
-.memBtn {
-    background: linear-gradient(180deg, #2a4a6a 0%, #1a3a4a 100%);
-    color: #66ccff;
-    font-weight: 600;
-}
-
-.memBtn:hover {
-    background: linear-gradient(180deg, #3a5a7a 0%, #2a4a5a 100%);
-}
-
-.otherBtn {
-    background: linear-gradient(180deg, #5a4a2a 0%, #3a2a1a 100%);
-    color: #ffaa00;
-    font-weight: 600;
-}
-
-.otherBtn:hover {
-    background: linear-gradient(180deg, #6a5a3a 0%, #4a3a2a 100%);
+/* Clear button - Red accent */
+button[data-action="CLR"] {
+    color: #ff9080;
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     body {
-        max-width: 100%;
-        padding: 10px;
+        padding: 15px 10px;
     }
-    
+
     #calculator-body {
-        padding: 15px;
+        max-width: 100%;
+        border-radius: 12px 12px 16px 16px;
     }
-    
+
+    #hp-header {
+        padding: 14px 18px 10px 18px;
+    }
+
+    .hp-letters {
+        font-size: 24px;
+    }
+
+    .model-name {
+        font-size: 20px;
+    }
+
+    .model-type {
+        font-size: 8px;
+    }
+
+    #display-bezel {
+        margin: 12px 14px;
+    }
+
+    #keyboard-section {
+        padding: 0 14px 16px 14px;
+    }
+
     button {
-        font-size: 0.7em;
-        height: 36px;
-        min-width: 40px;
+        font-size: 10px;
+        height: 38px;
+    }
+
+    button[data-action="0"],
+    button[data-action="1"],
+    button[data-action="2"],
+    button[data-action="3"],
+    button[data-action="4"],
+    button[data-action="5"],
+    button[data-action="6"],
+    button[data-action="7"],
+    button[data-action="8"],
+    button[data-action="9"],
+    button[data-action="."] {
+        font-size: 13px;
+    }
+
+    .opBtn {
+        font-size: 14px;
+    }
+
+    .stack-value {
+        font-size: 14px;
+    }
+
+    .stack-label {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 360px) {
+    #hp-header {
+        padding: 12px 14px 8px 14px;
+    }
+
+    .hp-letters {
+        font-size: 20px;
+    }
+
+    .model-name {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 9px;
+        height: 34px;
+    }
+
+    .button-row {
+        gap: 3px;
+    }
+
+    #calcContainer {
+        gap: 4px;
     }
 }

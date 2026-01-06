@@ -16,8 +16,21 @@
 <body>
   <!-- HP-67 Calculator Body -->
   <div id="calculator-body">
-    <!-- Stack Display Area -->
-    <div id="stackDisplay">
+    <!-- HP Logo/Branding Area -->
+    <div id="hp-header">
+      <div class="hp-logo">
+        <span class="hp-letters">hp</span>
+      </div>
+      <div class="model-info">
+        <span class="model-name">67</span>
+        <span class="model-type">Programmable Scientific</span>
+      </div>
+    </div>
+
+    <!-- Metallic Bezel -->
+    <div id="display-bezel">
+      <!-- Stack Display Area -->
+      <div id="stackDisplay">
       <div class="stack-row">
         <div class="stack-label">T:</div>
         <div class="stack-value" id="stack-t">0</div>
@@ -40,10 +53,10 @@
         <div class="stack-value" id="stack-entry"></div>
       </div>
     </div>
+    </div>
 
-    <!-- HP-67 Calculator Keyboard -->
-    <div id="calcContainer">
-    <!-- HP-67 Calculator Keyboard -->
+    <!-- Keyboard Section with Gold Trim -->
+    <div id="keyboard-section">
     <div id="calcContainer">
       <!-- Row 1: Top function row -->
       <div class="button-row">
@@ -91,8 +104,7 @@
         <button class="otherBtn" data-action="ROLL">R↓</button>
         <button class="otherBtn" data-action="LASTX">LAST x</button>
         <button class="otherBtn" data-action="CHS">CHS</button>
-        <button class="otherBtn" data-action="EEX">EEX</button>
-        <button class="otherBtn enter-btn" data-action="ENTER">ENTER ↑</button>
+        <button class="enter-btn" data-action="ENTER">ENTER ↓</button>
       </div>
       
       <!-- Row 6: 7, 8, 9, operations -->
@@ -130,9 +142,10 @@
         <button class="otherBtn" data-action="DEL">DEL</button>
         <button data-action="0" class="wide-btn">0</button>
         <button data-action=".">.</button>
+        <button class="otherBtn" data-action="EEX">EEX</button>
         <button class="opBtn" data-action="+">+</button>
-        <button class="fnBtn" data-action="HMS">→H.MS</button>
       </div>
+    </div>
     </div>
   </div>
 
