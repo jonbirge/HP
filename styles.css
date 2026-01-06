@@ -182,8 +182,9 @@ body {
 .stack-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 15px;
-    line-height: 1.5;
+    height: 22px;
     position: relative;
     z-index: 1;
 }
@@ -208,6 +209,8 @@ body {
         0 0 8px rgba(255, 102, 0, 0.6),
         0 0 15px rgba(255, 60, 0, 0.3);
     letter-spacing: 1px;
+    line-height: 22px;
+    min-height: 22px;
 }
 
 /* Entry row - slightly dimmer */
@@ -249,19 +252,22 @@ body {
     border-top: 1px solid rgba(80, 70, 55, 0.4);
 }
 
-/* Base button styles - Classic HP beveled keys */
+/* Base button styles - Classic HP flat-top beveled keys */
 button {
     font-family: 'Roboto Condensed', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 11px;
-    background: linear-gradient(180deg,
-        #4a4540 0%,
-        #3a3530 40%,
-        #2a2520 60%,
-        #353025 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.05) 3%,
+            transparent 3%),
+        linear-gradient(180deg,
+            #3a3530 0%,
+            #353025 100%);
     color: #e8e0d0;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     width: 100%;
     height: 42px;
     cursor: pointer;
@@ -269,8 +275,10 @@ button {
     box-shadow:
         0 4px 0 #1a1815,
         0 5px 3px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 1px 0 0 rgba(255, 255, 255, 0.05),
+        inset -1px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     transition: all 0.08s ease-out;
     padding: 0 3px;
@@ -279,25 +287,37 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(180deg,
-        #555048 0%,
-        #454038 40%,
-        #353028 60%,
-        #403830 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg,
+            #454038 0%,
+            #403830 100%);
     box-shadow:
         0 4px 0 #1a1815,
         0 6px 5px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 1px 0 0 rgba(255, 255, 255, 0.06),
+        inset -1px 0 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 button:active {
     transform: translateY(3px);
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 5%),
+        linear-gradient(180deg,
+            #302a25 0%,
+            #2a2520 100%);
     box-shadow:
         0 1px 0 #1a1815,
         0 2px 2px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Math notation styling */
@@ -323,11 +343,12 @@ button[data-action="7"],
 button[data-action="8"],
 button[data-action="9"],
 button[data-action="."] {
-    background: linear-gradient(180deg,
-        #5a5550 0%,
-        #4a4540 40%,
-        #3a3530 60%,
-        #454035 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.06) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #4a4540 0%, #454035 100%);
     color: #ffffff;
     font-weight: 700;
     font-size: 14px;
@@ -344,20 +365,22 @@ button[data-action="7"]:hover,
 button[data-action="8"]:hover,
 button[data-action="9"]:hover,
 button[data-action="."]:hover {
-    background: linear-gradient(180deg,
-        #656055 0%,
-        #555048 40%,
-        #454038 60%,
-        #504840 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.18) 0%,
+            rgba(255, 255, 255, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #555048 0%, #504840 100%);
 }
 
 /* Operation buttons - Gold/Brown HP style */
 .opBtn {
-    background: linear-gradient(180deg,
-        #8a7040 0%,
-        #705828 40%,
-        #5a4820 60%,
-        #6a5830 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 240, 200, 0.2) 0%,
+            rgba(255, 240, 200, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #6a5828 0%, #5a4820 100%);
     color: #fff8e0;
     font-weight: 700;
     font-size: 16px;
@@ -365,150 +388,194 @@ button[data-action="."]:hover {
     box-shadow:
         0 4px 0 #3a3020,
         0 5px 3px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 240, 200, 0.25),
+        inset 1px 0 0 rgba(255, 240, 200, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .opBtn:hover {
-    background: linear-gradient(180deg,
-        #9a8050 0%,
-        #806838 40%,
-        #6a5830 60%,
-        #7a6840 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 240, 200, 0.25) 0%,
+            rgba(255, 240, 200, 0.1) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #7a6838 0%, #6a5830 100%);
     box-shadow:
         0 4px 0 #3a3020,
         0 6px 5px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 240, 200, 0.3),
+        inset 1px 0 0 rgba(255, 240, 200, 0.1),
+        inset -1px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .opBtn:active {
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 5%),
+        linear-gradient(180deg, #504018 0%, #4a3818 100%);
     box-shadow:
         0 1px 0 #3a3020,
         0 2px 2px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Function buttons - Olive/Khaki HP style */
 .fnBtn {
-    background: linear-gradient(180deg,
-        #605838 0%,
-        #504828 40%,
-        #403820 60%,
-        #4a4228 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(230, 230, 150, 0.15) 0%,
+            rgba(230, 230, 150, 0.05) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #504828 0%, #4a4220 100%);
     color: #e8e080;
     font-weight: 600;
     box-shadow:
         0 4px 0 #282418,
         0 5px 3px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(230, 230, 150, 0.18),
+        inset 1px 0 0 rgba(230, 230, 150, 0.06),
+        inset -1px 0 0 rgba(0, 0, 0, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .fnBtn:hover {
-    background: linear-gradient(180deg,
-        #706848 0%,
-        #605838 40%,
-        #504830 60%,
-        #5a5238 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(230, 230, 150, 0.2) 0%,
+            rgba(230, 230, 150, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #605838 0%, #5a5230 100%);
     box-shadow:
         0 4px 0 #282418,
         0 6px 5px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(230, 230, 150, 0.22),
+        inset 1px 0 0 rgba(230, 230, 150, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .fnBtn:active {
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 5%),
+        linear-gradient(180deg, #403818 0%, #3a3418 100%);
     box-shadow:
         0 1px 0 #282418,
         0 2px 2px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Memory buttons - Blue HP style */
 .memBtn {
-    background: linear-gradient(180deg,
-        #3a5068 0%,
-        #2a4058 40%,
-        #203048 60%,
-        #2a3a50 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(150, 200, 255, 0.18) 0%,
+            rgba(150, 200, 255, 0.06) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #2a4058 0%, #253850 100%);
     color: #90d0ff;
     font-weight: 600;
     box-shadow:
         0 4px 0 #152030,
         0 5px 3px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(150, 200, 255, 0.2),
+        inset 1px 0 0 rgba(150, 200, 255, 0.06),
+        inset -1px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .memBtn:hover {
-    background: linear-gradient(180deg,
-        #4a6078 0%,
-        #3a5068 40%,
-        #304058 60%,
-        #3a4a60 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(150, 200, 255, 0.22) 0%,
+            rgba(150, 200, 255, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #3a5068 0%, #354860 100%);
     box-shadow:
         0 4px 0 #152030,
         0 6px 5px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(150, 200, 255, 0.25),
+        inset 1px 0 0 rgba(150, 200, 255, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .memBtn:active {
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 5%),
+        linear-gradient(180deg, #203048 0%, #1a2840 100%);
     box-shadow:
         0 1px 0 #152030,
         0 2px 2px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Other/Stack operation buttons - Tan/Brown */
 .otherBtn {
-    background: linear-gradient(180deg,
-        #5a4838 0%,
-        #4a3828 40%,
-        #3a2820 60%,
-        #443228 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 200, 150, 0.15) 0%,
+            rgba(255, 200, 150, 0.05) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #4a3828 0%, #443020 100%);
     color: #ffcc88;
     font-weight: 600;
     font-size: 10px;
     box-shadow:
         0 4px 0 #201810,
         0 5px 3px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 200, 150, 0.18),
+        inset 1px 0 0 rgba(255, 200, 150, 0.06),
+        inset -1px 0 0 rgba(0, 0, 0, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .otherBtn:hover {
-    background: linear-gradient(180deg,
-        #6a5848 0%,
-        #5a4838 40%,
-        #4a3830 60%,
-        #544238 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 200, 150, 0.2) 0%,
+            rgba(255, 200, 150, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #5a4838 0%, #544030 100%);
     box-shadow:
         0 4px 0 #201810,
         0 6px 5px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 200, 150, 0.22),
+        inset 1px 0 0 rgba(255, 200, 150, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .otherBtn:active {
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 5%),
+        linear-gradient(180deg, #3a2818 0%, #342418 100%);
     box-shadow:
         0 1px 0 #201810,
         0 2px 2px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ENTER button - Special gold highlight */
 .enter-btn {
-    background: linear-gradient(180deg,
-        #7a6238 0%,
-        #604a20 40%,
-        #503a18 60%,
-        #5a4420 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 230, 160, 0.22) 0%,
+            rgba(255, 230, 160, 0.08) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #5a4820 0%, #504018 100%);
     color: #ffe8a0;
     font-weight: 700;
     font-size: 10px;
@@ -516,16 +583,39 @@ button[data-action="."]:hover {
     box-shadow:
         0 4px 0 #302810,
         0 5px 3px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        inset 0 1px 0 rgba(255, 230, 160, 0.25),
+        inset 1px 0 0 rgba(255, 230, 160, 0.08),
+        inset -1px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .enter-btn:hover {
-    background: linear-gradient(180deg,
-        #8a7248 0%,
-        #705a30 40%,
-        #604a28 60%,
-        #6a5430 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(255, 230, 160, 0.28) 0%,
+            rgba(255, 230, 160, 0.1) 3%,
+            transparent 3%),
+        linear-gradient(180deg, #6a5830 0%, #604828 100%);
+    box-shadow:
+        0 4px 0 #302810,
+        0 6px 5px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 230, 160, 0.3),
+        inset 1px 0 0 rgba(255, 230, 160, 0.1),
+        inset -1px 0 0 rgba(0, 0, 0, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.enter-btn:active {
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 5%),
+        linear-gradient(180deg, #4a3818 0%, #443010 100%);
+    box-shadow:
+        0 1px 0 #302810,
+        0 2px 2px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Wide button styling */
