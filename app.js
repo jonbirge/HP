@@ -3,6 +3,28 @@ let currentEntry = '';
 let memory = 0;
 let lastX = 0;
 let sumStats = { n: 0, sumX: 0, sumX2: 0, sumY: 0, sumY2: 0, sumXY: 0 };
+let angleMode = 'RAD'; // 'RAD' or 'DEG'
+
+// Conversion helpers for angle mode
+function toRadians(angle) {
+    return angleMode === 'DEG' ? angle * Math.PI / 180 : angle;
+}
+
+function fromRadians(angle) {
+    return angleMode === 'DEG' ? angle * 180 / Math.PI : angle;
+}
+
+function toggleAngleMode() {
+    angleMode = angleMode === 'RAD' ? 'DEG' : 'RAD';
+    updateAngleModeDisplay();
+}
+
+function updateAngleModeDisplay() {
+    const indicator = document.getElementById('angle-mode');
+    if (indicator) {
+        indicator.textContent = angleMode;
+    }
+}
 
 function pushStack(newValue) {
     stack[3] = stack[2];
@@ -128,12 +150,12 @@ function handleFunction(fn) {
     lastX = x;
     
     switch (fn) {
-        case 'sin': result = Math.sin(x); break;
-        case 'cos': result = Math.cos(x); break;
-        case 'tan': result = Math.tan(x); break;
-        case 'asin': result = Math.asin(x); break;
-        case 'acos': result = Math.acos(x); break;
-        case 'atan': result = Math.atan(x); break;
+        case 'sin': result = Math.sin(toRadians(x)); break;
+        case 'cos': result = Math.cos(toRadians(x)); break;
+        case 'tan': result = Math.tan(toRadians(x)); break;
+        case 'asin': result = fromRadians(Math.asin(x)); break;
+        case 'acos': result = fromRadians(Math.acos(x)); break;
+        case 'atan': result = fromRadians(Math.atan(x)); break;
         case 'ln': result = Math.log(x); break;
         case 'exp': result = Math.exp(x); break;
         case 'log10': result = Math.log10 ? Math.log10(x) : (Math.log(x) / Math.log(10)); break;
@@ -177,7 +199,7 @@ function handleFunction(fn) {
             // Convert rectangular (x, y) to polar (r, θ)
             const yVal = asFloat(stack[1]);
             const r = Math.sqrt(x * x + yVal * yVal);
-            const theta = Math.atan2(x, yVal);
+            const theta = fromRadians(Math.atan2(x, yVal));
             popStack();
             stack[0] = theta;
             pushStack(r);
@@ -185,7 +207,7 @@ function handleFunction(fn) {
             return;
         case 'rect':
             // Convert polar (r, θ) to rectangular (x, y)
-            const theta2 = asFloat(stack[1]);
+            const theta2 = toRadians(asFloat(stack[1]));
             const xVal = x * Math.cos(theta2);
             const yVal2 = x * Math.sin(theta2);
             popStack();
@@ -283,6 +305,7 @@ function handleAction(action) {
     if (action === 'CHS') { handleCHS(); return; }
     if (action === 'EEX') { handleEEX(); return; }
     if (action === 'LASTX') { handleLastX(); return; }
+    if (action === 'DEG') { toggleAngleMode(); return; }
     if (['STO', 'RCL', 'SUM', 'MEAN', 'STDEV', 'LR'].includes(action)) { handleMemoryOp(action); return; }
     if (['+', '-', '*', '/', 'y^x'].includes(action)) { handleArithmetic(action); return; }
     if (['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'ln', 'exp', 'log10', 'sqrt', 'x^2', 'inv',
@@ -323,6 +346,7 @@ function handleLastX() {
 
 document.addEventListener('DOMContentLoaded', () => {
     updateDisplay();
+    updateAngleModeDisplay();
     document.querySelectorAll('button').forEach(btn => {
         btn.addEventListener('click', () => {
             const action = btn.getAttribute('data-action');
